@@ -1,0 +1,17 @@
+// tsconfig for building - only applies to the src directory
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"rootDir": "src",
+		"outDir": "build",
+		// Some @internal members need to be accessed from other modules in this monorepo
+		"stripInternal": false
+	},
+	"references": [
+		{
+			"path": "../shared/tsconfig.build.json"
+		}
+	],
+	"include": ["src/**/*.ts"],
+	"exclude": ["src/**/*.test.ts"]
+}
